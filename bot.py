@@ -14,15 +14,15 @@ import requests.auth
 class bot:
 
 	def __init__(self):
-		self.client_id = 'GjaNfoqNfY6njQ'
-		self.secret = '0X3CbSmtARTnQg5js_sMiBzh3YQ'
+		self.client_id = 'CLIENT_ID'
+		self.secret = 'SECRET_ID'
 		self.type_= 'code'
 		self.state='STATE'
 		self.redirect_uri='localhost'
 		self.duration = 'temporary'
 		self.scope = 'edit,save,submit'
-		self.username = 'Forbiddencollectable'
-		self.password = 'majeh1sam'
+		self.username = 'REDDIT_USERNAME'
+		self.password = 'PASSWORD'
 
 	def login(self):
 		#api/v1/authorize?client_id={0}&response_type={1}&state={2}&redirect_uri={3}&duration={4}&scope={5}".format(self.client_id,self.type_,self.state,self.redirect_uri,self.duration,self.scope)
