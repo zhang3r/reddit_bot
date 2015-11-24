@@ -14,29 +14,32 @@ import requests.auth
 class bot:
 
 	def __init__(self):
-		self.client_id = 'GjaNfoqNfY6njQ'
-		self.secret = '0X3CbSmtARTnQg5js_sMiBzh3YQ'
-		self.type_= 'code'
-		self.state='STATE'
-		self.redirect_uri='localhost'
-		self.duration = 'temporary'
-		self.scope = 'edit,save,submit'
-		self.username = 'Forbiddencollectable'
-		self.password = 'majeh1sam'
+		self.client_id = 'CLIENT_ID'
+		self.secret = 'SECRET_ID'
+		self.username = 'REDDIT_USERNAME'
+		self.password = 'REDDIT_PASSWORD'
 
 	def login(self):
-		#api/v1/authorize?client_id={0}&response_type={1}&state={2}&redirect_uri={3}&duration={4}&scope={5}".format(self.client_id,self.type_,self.state,self.redirect_uri,self.duration,self.scope)
 		client_auth = requests.auth.HTTPBasicAuth(self.client_id, self.secret)
 		post_data ={ "grant_type": "password","username":self.username, "password":self.password}
 		headers = {"User-Agent":"mybot by marullus"}
 		response = requests.post("https://www.reddit.com/api/v1/access_token", auth=client_auth, data=post_data, headers= headers)
 		response_json = response.json()
-		print(response_json)
+		return response_json['access_token']
+	def search(self, subreddit, access_token):
+		return
+
+	def comment_generator(self):
+		return 'hello world'
+
+	def post_comment(self, comment):
+
 
 
 def main():
-	a = bot()
-	a.login()
+	bot = bot()
+	reddit_access_token=bot.login()
+	bot.search(subreddit='relationships',access_token=reddit_access_toekn)
 
 
 if __name__ == '__main__':
